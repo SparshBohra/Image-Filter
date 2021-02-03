@@ -11,7 +11,7 @@ What does it even mean to filter an image? You can think of filtering an image a
  
 ### Steps to Compile and Run
 1.  Add your images to the 'images' folder (You can also use the existing sample images)
-2.  You are required to use Bitmap images ONLY
+2.  You are required to use Bitmap images ONLY (.bmp)
 3.  Run the program for the desired filter using the following commands:
     - Grayscale:  ./filter -g images/(IMAGE_NAME).bmp grayscale.bmp
     - Reflect:  ./filter -r images/(IMAGE_NAME).bmp reflected.bmp
