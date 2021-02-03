@@ -9,7 +9,7 @@ What does it even mean to filter an image? You can think of filtering an image a
  - Blur (b)
  - Edge Detection (e)
  
-### Steps to Compile and Run
+### Instructions to Run the program
 1.  Add your images to the 'images' folder (You can also use the existing sample images)
 2.  You are required to use Bitmap images ONLY (.bmp)
 3.  Run the program for the desired filter using the following commands:
