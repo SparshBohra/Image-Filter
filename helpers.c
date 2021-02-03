@@ -1,6 +1,7 @@
 #include "helpers.h"
 #include <math.h>
 
+// Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i=0; i<height; i++) {
@@ -14,49 +15,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void negate(int height, int width, RGBTRIPLE image[height][width]) {
-    for (int i=0; i<height; i++) {
-        for (int j=0; j<width; j++) {
-            image[i][j].rgbtRed = 255 - image[i][j].rgbtRed;
-            image[i][j].rgbtBlue = 255 - image[i][j].rgbtBlue;
-            image[i][j].rgbtGreen = 255 - image[i][j].rgbtGreen;
-        }
-    }
-    return;
-}
-
-void sepia(int height, int width, RGBTRIPLE image[height][width])
-{
-    for (int i=0; i<height; i++) {
-        for (int j=0; j<width; j++) {
-            int originalRed = image[i][j].rgbtRed;
-            int originalBlue = image[i][j].rgbtBlue;
-            int originalGreen = image[i][j].rgbtGreen;
-
-            float sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue;
-            float sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue;
-            float sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue;
-
-            if (sepiaRed > 255) {
-                sepiaRed = 255;
-            }
-
-            if (sepiaGreen > 255) {
-                sepiaGreen = 255;
-            }
-
-            if (sepiaBlue > 255) {
-                sepiaBlue = 255;
-            }
-
-            image[i][j].rgbtRed = round(sepiaRed);
-            image[i][j].rgbtBlue = round(sepiaGreen);
-            image[i][j].rgbtGreen = round(sepiaBlue);
-        }
-    }
-    return;
-}
-
+// Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++) {
@@ -79,6 +38,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
+// Blur the image
 void blur(int height, int width, RGBTRIPLE image[height][width]) {
 
     RGBTRIPLE test[height][width];
@@ -111,6 +71,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width]) {
     return;
 }
 
+// Vertical and horizontal edge detection
 void edges(int height, int width, RGBTRIPLE image[height][width]) {
 
     float testRedx = 0, testBluex = 0, testGreenx = 0, testRedy = 0, testBluey = 0, testGreeny = 0;
