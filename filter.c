@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[]) {
 
-    char *filters = "begr";
+    char *filters = "begrs";
     char filter = getopt(argc, argv, filters);
 
     if (filter == '?') {
@@ -87,6 +87,10 @@ int main(int argc, char *argv[]) {
 
         case 'r':
             reflect(height, width, image);
+            break;
+
+        case 's':
+            sepia(height, width, image);
             break;
     }
 
