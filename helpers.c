@@ -125,3 +125,27 @@ void edges(int height, int width, RGBTRIPLE image[height][width]) {
     }
     return;
 }
+
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width]){
+
+    int newRed = 0, newBlue = 0, newGreen = 0;
+
+    for (int i=0; i<height; i++) {
+        for (int j=0; j<width; j++) {
+            // These specific values are the values for sepia tone that are recommended by Microsoft.
+            newRed   = (0.393 * image[i][j].rgbtRed) + (0.769 * image[i][j].rgbtGreen) + (0.189 * image[i][j].rgbtBlue);
+            newGreen = (0.349 * image[i][j].rgbtRed) + (0.686 * image[i][j].rgbtGreen) + (0.168 * image[i][j].rgbtBlue); 
+            newBlue  = (0.272 * image[i][j].rgbtRed) + (0.534 * image[i][j].rgbtGreen) + (0.131 * image[i][j].rgbtBlue);
+
+            // If any of these output values is greater than 255, we set it to 255.
+            image[i][j].rgbtRed   = (newRed > 255) ? 255 :newRed;
+            image[i][j].rgbtBlue  = (newBlue > 255) ? 255 : newBlue;
+            image[i][j].rgbtGreen = (newGreen > 255) ? 255 :newGreen;
+
+        }
+    }
+
+    return;
+
+}
